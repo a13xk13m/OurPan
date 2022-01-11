@@ -58,7 +58,7 @@ class _ProfileSavedFeedState extends State<ProfileSavedFeed> {
               );
             })
         : Center(
-            child: Text('Create a recipe with the "+" button on the right.',
+            child: Text('Save a recipe in your feed to see it here.',
                 style: TextStyle(fontSize: 18, color: CustomColors.darkText)));
   }
 }
