@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "411506169795",
+    "project_id": "ourpan-3c8a8",
+    "storage_bucket": "ourpan-3c8a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411506169795:android:14b9e1c89f6661e94d4f76",
+        "android_client_info": {
+          "package_name": "com.klem.ourpan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411506169795-33gu942ukmj3uubsvdsnjeht9nc2gekn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klem.ourpan",
+            "certificate_hash": "bfbf3bab28825a0e5685e48620b5c5705721a6fb"
+          }
+        },
+        {
+          "client_id": "411506169795-r1jkatd69jr6044n38d8e60mkrntjcsl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCoC6WkkXYQoEFPSCCuc3LwN9-faeW8sY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411506169795-r1jkatd69jr6044n38d8e60mkrntjcsl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "411506169795-darkic8anihdejhon31ernm83kububqg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ourpan.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
