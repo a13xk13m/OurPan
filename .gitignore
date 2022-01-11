@@ -47,4 +47,5 @@ app.*.map.json
 
 # API Keys!!!
 lib/firebase_options.dart
-
+/android
+/ios
