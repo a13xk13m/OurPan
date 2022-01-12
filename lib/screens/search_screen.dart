@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:our_pan/res/custom_colors.dart';
 import 'package:our_pan/utils/recipe_dao.dart';
 import 'package:our_pan/utils/search_dao.dart';
+import 'package:our_pan/widgets/search_tab_view.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -55,7 +56,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         // Run search.
                         runSearch(query);
                       },
-                    )
+                    ),
+                    SearchTabView(recipes: recipes, users: users, tags: tags)
                   ],
                 ),
               )
