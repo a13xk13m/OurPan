@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:our_pan/res/custom_colors.dart';
+import 'package:our_pan/utils/search_dao.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -7,6 +8,23 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  SearchDao dao = SearchDao();
+  String searchQuery = '';
+  Map<String, List<dynamic>> results = {};
+  TextEditingController searchCon = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  // Runs a search and updates the results map.
+  Future<void> runSearch(String queryString) async {
+    setState(() async {
+      results = await dao.generalSearch(queryString);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,16 +44,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(height: 30),
-                    Flexible(
-                      flex: 1,
-                      child: Image.asset(
-                        'assets/our_pan_logo.png',
-                        height: 160,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text("Search")
+                    TextField(
+                      controller: searchCon,
+                      onChanged: (query) async {
+                        // Run search.
+                        runSearch(query);
+                      },
+                    )
                   ],
                 ),
               )
