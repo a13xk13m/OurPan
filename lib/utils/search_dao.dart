@@ -57,7 +57,11 @@ class SearchDao {
 
   // General search that returns users, tags, and recipes.
   Future<Map<String, List<dynamic>>> generalSearch(String query) async {
-    Map<String, List<dynamic>> results = {};
+    Map<String, List<dynamic>> results = {
+      'recipes': <RecipeModel>[],
+      'users': <String>[],
+      'tags': <String>[]
+    };
     // Query recipes.
     results['recipes'] = await recipeSearch(query);
     // Query users.
