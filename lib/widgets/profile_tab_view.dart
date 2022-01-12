@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:our_pan/res/custom_colors.dart';
 import 'package:our_pan/widgets/profile_recipe_feed.dart';
+import 'package:our_pan/widgets/profile_saved_feed.dart';
 
 // Tab view of a users profile that switches between different tabs.
 // Requires UID from firebase to fetch data.
@@ -29,7 +30,7 @@ class _ProfileTabViewState extends State<ProfileTabView>
       ProfileRecipeFeed(
         uid: uid,
       ),
-      Tab(icon: const Icon(Icons.text_snippet, color: CustomColors.bars)),
+      ProfileSavedFeed(),
     ];
   }
 

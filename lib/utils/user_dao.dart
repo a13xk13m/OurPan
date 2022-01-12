@@ -12,9 +12,8 @@ class UserDao {
   Future<void> saveRecipe(String recipeId) async {
     // Very bad implementation that sets a new child of the ref to
     // have a key that is the id of the recipe.
-    final DatabaseReference saveRef =
-        FirebaseDatabase.instance.ref('users/$uid/saved');
-    await ref.set({recipeId: ''});
+    final DatabaseReference saveRef = ref.child('/saved');
+    await saveRef.set({recipeId: ''});
   }
 
   // Gets the user's saved recipe list.
@@ -38,6 +37,7 @@ class UserDao {
       json['recipeID'] = item.key;
       recipes.add(RecipeModel.fromJson(json));
     }
+    print(recipes);
     return recipes;
   }
 }

@@ -7,10 +7,6 @@ import 'package:our_pan/widgets/small_recipe_card.dart';
 // TODO: Implement pagination.
 // Feed shows all recipes a user has saved in small card form.
 class ProfileSavedFeed extends StatefulWidget {
-  late final String uid;
-
-  ProfileSavedFeed({required this.uid});
-
   @override
   State<StatefulWidget> createState() {
     return _ProfileSavedFeedState();
@@ -20,10 +16,10 @@ class ProfileSavedFeed extends StatefulWidget {
 class _ProfileSavedFeedState extends State<ProfileSavedFeed> {
   late List<RecipeModel> allRecipes = <RecipeModel>[];
   UserDao dao = UserDao();
-  late String uid;
   // Gets the user's recipes.
   Future<void> getRecipes() async {
     List<RecipeModel> res = await dao.getSavedRecipes();
+    print(res);
     setState(() {
       allRecipes = res;
     });
@@ -32,7 +28,6 @@ class _ProfileSavedFeedState extends State<ProfileSavedFeed> {
   @override
   void initState() {
     super.initState();
-    uid = widget.uid;
     getRecipes();
   }
 
