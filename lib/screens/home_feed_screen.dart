@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:our_pan/res/custom_colors.dart';
+import 'package:our_pan/utils/home_feed_dao.dart';
+import 'package:our_pan/utils/recipe_dao.dart';
+import 'package:our_pan/widgets/recipe_feed.dart';
 
 class HomeFeedScreen extends StatefulWidget {
   @override
@@ -7,6 +10,21 @@ class HomeFeedScreen extends StatefulWidget {
 }
 
 class _HomeFeedScreenState extends State<HomeFeedScreen> {
+  late List<RecipeModel> recipes;
+  HomeFeedDao dao = HomeFeedDao();
+
+  @override
+  void initState() {
+    super.initState();
+    getRecipes();
+  }
+
+  Future<void> getRecipes() async {
+    setState(() async {
+      recipes = await dao.getRecipeFeed();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,26 +38,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(),
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(height: 30),
-                    Flexible(
-                      flex: 1,
-                      child: Image.asset(
-                        'assets/our_pan_logo.png',
-                        height: 160,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text("Home Feed")
-                  ],
-                ),
-              )
-            ],
+            children: [RecipeFeed(recipes: recipes)],
           ),
         ),
       ),
