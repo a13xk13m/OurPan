@@ -10,25 +10,33 @@ class HomeFeedScreen extends StatefulWidget {
 }
 
 class _HomeFeedScreenState extends State<HomeFeedScreen> {
-  late List<RecipeModel> recipes;
+  List<RecipeModel> recipes = [];
   HomeFeedDao dao = HomeFeedDao();
 
   @override
   void initState() {
     super.initState();
-    getRecipes();
+    // Get recipes then force a state update to rerender feed.
+    // There must be a better way to do this.
+    getRecipes().then((result) {
+      setState(() {
+        print(recipes);
+      });
+    });
   }
 
   Future<void> getRecipes() async {
-    setState(() async {
-      recipes = await dao.getRecipeFeed();
-    });
+    recipes = await dao.getRecipeFeed();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.background,
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: CustomColors.bars,
+          title: Text('Home', style: TextStyle(color: CustomColors.lightText))),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(

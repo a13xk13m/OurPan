@@ -16,7 +16,7 @@ class HomeFeedDao {
     // Determine length of feed, if the # of children of snapshot is less than
     // the passed length, use that.
     int lengthFeed =
-        length > feedData.children.length ? length : feedData.children.length;
+        feedData.children.length > length ? length : feedData.children.length;
     // Iterate through the first 100 children.
     for (int i = 0; i < lengthFeed; ++i) {
       DataSnapshot item = feedData.children.elementAt(i);

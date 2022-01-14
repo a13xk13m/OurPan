@@ -134,7 +134,7 @@ class RecipeDao {
   firebase_storage.FirebaseStorage storage =
       firebase_storage.FirebaseStorage.instance;
   final String uid = FirebaseAuth.instance.currentUser!.uid;
-  late final DatabaseReference ref = FirebaseDatabase.instance.ref('/recipes');
+  final DatabaseReference ref = FirebaseDatabase.instance.ref('/recipes');
 
   // Uploads an image from a file path.
   // Returns the url to the file on Firebase.
