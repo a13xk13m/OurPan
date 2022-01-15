@@ -18,11 +18,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
     super.initState();
     // Get recipes then force a state update to rerender feed.
     // There must be a better way to do this.
-    getRecipes().then((result) {
-      setState(() {
-        print(recipes);
-      });
-    });
+    getRecipes();
   }
 
   Future<void> getRecipes() async {
