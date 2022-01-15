@@ -22,7 +22,11 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
   }
 
   Future<void> getRecipes() async {
-    recipes = await dao.getRecipeFeed();
+    List<RecipeModel> res = await dao.getRecipeFeed();
+    setState(() {
+      recipes = res;
+      print(recipes);
+    });
   }
 
   @override
